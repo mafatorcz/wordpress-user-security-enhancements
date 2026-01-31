@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bezpecnostni upravy usera 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-27 00:00+0000\n"
+"PO-Revision-Date: 2026-01-27 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n%10>=2 && n%10<=4 && (n%100<12 || n%100>14)) ? 1 : 2;\n"
+
+msgid "Password must be at least %d characters."
+msgstr "Haslo musi miec co najmniej %d znakow."
+
+msgid "Force password change"
+msgstr "Wymuszenie zmiany hasla"
+
+msgid "Click the button to force all users to change their password again."
+msgstr "Kliknij przycisk, aby ponownie wymusic zmiane hasla u wszystkich uzytkownikow."
+
+msgid "Force password change again"
+msgstr "Wymus zmiane hasla ponownie"
+
+msgid "Insufficient permissions."
+msgstr "Niewystarczajace uprawnienia."
+
+msgid "Password must include at least one uppercase letter."
+msgstr "Haslo musi zawierac co najmniej jedna wielka litere."
+
+msgid "Password must include at least one number."
+msgstr "Haslo musi zawierac co najmniej jedna cyfre."
+
+msgid "Password must include at least one special character."
+msgstr "Haslo musi zawierac co najmniej jeden znak specjalny."
+
+msgid "Minimum length: 22 characters"
+msgstr "Minimalna dlugosc: 22 znaki"
+
+msgid "At least one uppercase letter"
+msgstr "Co najmniej jedna wielka litera"
+
+msgid "At least one number"
+msgstr "Co najmniej jedna cyfra"
+
+msgid "At least one special character"
+msgstr "Co najmniej jeden znak specjalny"
+
+msgid "Save the password using the Update Profile button at the bottom."
+msgstr "Zapisz haslo przyciskiem Aktualizuj profil na dole."
+
+msgid "Go to password fields"
+msgstr "Przejdz do pol hasla"
+
+msgid "Continue"
+msgstr "Kontynuuj"
+
+msgid "Hint: Password must be at least 22 characters long and include an uppercase letter, a number, and a special character."
+msgstr "Wskazowka: Haslo musi miec co najmniej 22 znaki i zawierac wielka litere, cyfre oraz znak specjalny."
+
+msgid "Repeat the same password to confirm."
+msgstr "Powtorz to samo haslo w celu potwierdzenia."
+
+msgid "Recommendation: use a long passphrase. You can verify it with the Show password button."
+msgstr "Zalecenie: uzyj dlugiej passphrase. Do kontroli mozna uzyc przycisku Pokaz haslo."
+
+msgid "Password length: %1$d / %2$d (uppercase letter, number, special character)"
+msgstr "Dlugosc hasla: %1$d / %2$d (wielka litera, cyfra, znak specjalny)"
+
+msgid "Password change required"
+msgstr "Zmiana hasla jest wymagana"
+
+msgid "For security reasons, please change your password. Minimum length is 22 characters."
+msgstr "Ze wzgledow bezpieczenstwa prosze zmienic haslo. Minimalna dlugosc to 22 znaki."

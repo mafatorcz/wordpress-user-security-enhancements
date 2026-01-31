@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bezpecnostni upravy usera 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-27 00:00+0000\n"
+"PO-Revision-Date: 2026-01-27 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hr_HR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11) ? 0 : (n%10>=2 && n%10<=4 && (n%100<12 || n%100>14)) ? 1 : 2;\n"
+
+msgid "Password must be at least %d characters."
+msgstr "Lozinka mora imati najmanje %d znakova."
+
+msgid "Force password change"
+msgstr "Prisili promjenu lozinke"
+
+msgid "Click the button to force all users to change their password again."
+msgstr "Kliknite gumb kako biste ponovno prisilili sve korisnike na promjenu lozinke."
+
+msgid "Force password change again"
+msgstr "Ponovno prisili promjenu lozinke"
+
+msgid "Insufficient permissions."
+msgstr "Nedovoljna ovlastenja."
+
+msgid "Password must include at least one uppercase letter."
+msgstr "Lozinka mora sadrzavati barem jedno veliko slovo."
+
+msgid "Password must include at least one number."
+msgstr "Lozinka mora sadrzavati barem jednu znamenku."
+
+msgid "Password must include at least one special character."
+msgstr "Lozinka mora sadrzavati barem jedan poseban znak."
+
+msgid "Minimum length: 22 characters"
+msgstr "Minimalna duljina: 22 znaka"
+
+msgid "At least one uppercase letter"
+msgstr "Barem jedno veliko slovo"
+
+msgid "At least one number"
+msgstr "Barem jedna znamenka"
+
+msgid "At least one special character"
+msgstr "Barem jedan poseban znak"
+
+msgid "Save the password using the Update Profile button at the bottom."
+msgstr "Spremite lozinku gumbom Azuriraj profil na dnu."
+
+msgid "Go to password fields"
+msgstr "Idi na polja lozinke"
+
+msgid "Continue"
+msgstr "Nastavi"
+
+msgid "Hint: Password must be at least 22 characters long and include an uppercase letter, a number, and a special character."
+msgstr "Napomena: Lozinka mora imati najmanje 22 znaka i sadrzavati veliko slovo, znamenku i poseban znak."
+
+msgid "Repeat the same password to confirm."
+msgstr "Ponovite istu lozinku za potvrdu."
+
+msgid "Recommendation: use a long passphrase. You can verify it with the Show password button."
+msgstr "Preporuka: koristite dugu passphrase. Za provjeru mozete koristiti gumb Prikazi lozinku."
+
+msgid "Password length: %1$d / %2$d (uppercase letter, number, special character)"
+msgstr "Duljina lozinke: %1$d / %2$d (veliko slovo, znamenka, poseban znak)"
+
+msgid "Password change required"
+msgstr "Promjena lozinke je obavezna"
+
+msgid "For security reasons, please change your password. Minimum length is 22 characters."
+msgstr "Iz sigurnosnih razloga promijenite lozinku. Minimalna duljina je 22 znaka."

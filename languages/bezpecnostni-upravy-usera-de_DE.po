@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bezpecnostni upravy usera 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-27 00:00+0000\n"
+"PO-Revision-Date: 2026-01-27 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Password must be at least %d characters."
+msgstr "Das Passwort muss mindestens %d Zeichen lang sein."
+
+msgid "Force password change"
+msgstr "Passwortaenderung erzwingen"
+
+msgid "Click the button to force all users to change their password again."
+msgstr "Klicken Sie auf die Schaltflaeche, um alle Benutzer erneut zur Passwortaenderung zu zwingen."
+
+msgid "Force password change again"
+msgstr "Passwortaenderung erneut erzwingen"
+
+msgid "Insufficient permissions."
+msgstr "Unzureichende Berechtigungen."
+
+msgid "Password must include at least one uppercase letter."
+msgstr "Das Passwort muss mindestens einen Grossbuchstaben enthalten."
+
+msgid "Password must include at least one number."
+msgstr "Das Passwort muss mindestens eine Zahl enthalten."
+
+msgid "Password must include at least one special character."
+msgstr "Das Passwort muss mindestens ein Sonderzeichen enthalten."
+
+msgid "Minimum length: 22 characters"
+msgstr "Minimale Laenge: 22 Zeichen"
+
+msgid "At least one uppercase letter"
+msgstr "Mindestens ein Grossbuchstabe"
+
+msgid "At least one number"
+msgstr "Mindestens eine Zahl"
+
+msgid "At least one special character"
+msgstr "Mindestens ein Sonderzeichen"
+
+msgid "Save the password using the Update Profile button at the bottom."
+msgstr "Speichern Sie das Passwort mit der Schaltflaeche Profil aktualisieren ganz unten."
+
+msgid "Go to password fields"
+msgstr "Zu den Passwortfeldern springen"
+
+msgid "Continue"
+msgstr "Weiter"
+
+msgid "Hint: Password must be at least 22 characters long and include an uppercase letter, a number, and a special character."
+msgstr "Hinweis: Das Passwort muss mindestens 22 Zeichen lang sein und einen Grossbuchstaben, eine Zahl und ein Sonderzeichen enthalten."
+
+msgid "Repeat the same password to confirm."
+msgstr "Bitte dasselbe Passwort zur Bestaetigung wiederholen."
+
+msgid "Recommendation: use a long passphrase. You can verify it with the Show password button."
+msgstr "Empfehlung: Verwenden Sie eine lange Passphrase. Zur Kontrolle koennen Sie die Schaltflaeche Passwort anzeigen nutzen."
+
+msgid "Password length: %1$d / %2$d (uppercase letter, number, special character)"
+msgstr "Passwortlaenge: %1$d / %2$d (Grossbuchstabe, Zahl, Sonderzeichen)"
+
+msgid "Password change required"
+msgstr "Passwortaenderung ist erforderlich"
+
+msgid "For security reasons, please change your password. Minimum length is 22 characters."
+msgstr "Bitte aendern Sie aus Sicherheitsgruenden Ihr Passwort. Die Mindestlaenge betraegt 22 Zeichen."

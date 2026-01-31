@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bezpecnostni upravy usera 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-27 00:00+0000\n"
+"PO-Revision-Date: 2026-01-27 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1) ? 0 : (n%100==2) ? 1 : (n%100==3 || n%100==4) ? 2 : 3;\n"
+
+msgid "Password must be at least %d characters."
+msgstr "Geslo mora imeti vsaj %d znakov."
+
+msgid "Force password change"
+msgstr "Prisili menjavo gesla"
+
+msgid "Click the button to force all users to change their password again."
+msgstr "Kliknite gumb, da ponovno prisilite vse uporabnike k spremembi gesla."
+
+msgid "Force password change again"
+msgstr "Ponovno prisili menjavo gesla"
+
+msgid "Insufficient permissions."
+msgstr "Nezadostna dovoljenja."
+
+msgid "Password must include at least one uppercase letter."
+msgstr "Geslo mora vsebovati vsaj eno veliko crko."
+
+msgid "Password must include at least one number."
+msgstr "Geslo mora vsebovati vsaj eno stevilko."
+
+msgid "Password must include at least one special character."
+msgstr "Geslo mora vsebovati vsaj en poseben znak."
+
+msgid "Minimum length: 22 characters"
+msgstr "Minimalna dolzina: 22 znakov"
+
+msgid "At least one uppercase letter"
+msgstr "Vsaj ena velika crka"
+
+msgid "At least one number"
+msgstr "Vsaj ena stevilka"
+
+msgid "At least one special character"
+msgstr "Vsaj en poseben znak"
+
+msgid "Save the password using the Update Profile button at the bottom."
+msgstr "Geslo shranite z gumbom Posodobi profil na dnu."
+
+msgid "Go to password fields"
+msgstr "Pojdi na polja gesla"
+
+msgid "Continue"
+msgstr "Nadaljuj"
+
+msgid "Hint: Password must be at least 22 characters long and include an uppercase letter, a number, and a special character."
+msgstr "Namig: Geslo mora imeti vsaj 22 znakov in vsebovati veliko crko, stevilko in poseben znak."
+
+msgid "Repeat the same password to confirm."
+msgstr "Ponovite isto geslo za potrditev."
+
+msgid "Recommendation: use a long passphrase. You can verify it with the Show password button."
+msgstr "Priporocilo: uporabite dolgo passphrase. Za preverjanje lahko uporabite gumb Prikazi geslo."
+
+msgid "Password length: %1$d / %2$d (uppercase letter, number, special character)"
+msgstr "Dolzina gesla: %1$d / %2$d (velika crka, stevilka, poseben znak)"
+
+msgid "Password change required"
+msgstr "Menjava gesla je obvezna"
+
+msgid "For security reasons, please change your password. Minimum length is 22 characters."
+msgstr "Zaradi varnosti prosim spremenite geslo. Minimalna dolzina je 22 znakov."

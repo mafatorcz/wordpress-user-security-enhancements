@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bezpecnostni upravy usera 1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-27 00:00+0000\n"
+"PO-Revision-Date: 2026-01-27 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "Password must be at least %d characters."
+msgstr "Heslo musi mit alespon %d znaku."
+
+msgid "Force password change"
+msgstr "Vynuceni zmeny hesla"
+
+msgid "Click the button to force all users to change their password again."
+msgstr "Stisknutim tlacitka vynutite zmenu hesla pro vsechny uzivatele znovu."
+
+msgid "Force password change again"
+msgstr "Vynutit zmenu hesla znovu"
+
+msgid "Insufficient permissions."
+msgstr "Nedostatecna opravneni."
+
+msgid "Password must include at least one uppercase letter."
+msgstr "Heslo musi obsahovat alespon jedno velke pismeno."
+
+msgid "Password must include at least one number."
+msgstr "Heslo musi obsahovat alespon jednu cislici."
+
+msgid "Password must include at least one special character."
+msgstr "Heslo musi obsahovat alespon jeden specialni znak."
+
+msgid "Minimum length: 22 characters"
+msgstr "Minimalni delka: 22 znaku"
+
+msgid "At least one uppercase letter"
+msgstr "Alespon jedno velke pismeno"
+
+msgid "At least one number"
+msgstr "Alespon jedna cislice"
+
+msgid "At least one special character"
+msgstr "Alespon jeden specialni znak"
+
+msgid "Save the password using the Update Profile button at the bottom."
+msgstr "Heslo ulozte tlacitkem Aktualizovat profil uplne dole."
+
+msgid "Go to password fields"
+msgstr "Prejit na pole s heslem"
+
+msgid "Continue"
+msgstr "Pokracovat"
+
+msgid "Hint: Password must be at least 22 characters long and include an uppercase letter, a number, and a special character."
+msgstr "Napoveda: Heslo musi mit alespon 22 znaku a obsahovat velke pismeno, cislici a specialni znak."
+
+msgid "Repeat the same password to confirm."
+msgstr "Zopakujte stejne heslo pro potvrzeni."
+
+msgid "Recommendation: use a long passphrase. You can verify it with the Show password button."
+msgstr "Doporuceni: pouzijte dlouhou passphrase. Pro kontrolu lze pouzit tlacitko Zobrazit heslo."
+
+msgid "Password length: %1$d / %2$d (uppercase letter, number, special character)"
+msgstr "Delka hesla: %1$d / %2$d (velke pismeno, cislice, specialni znak)"
+
+msgid "Password change required"
+msgstr "Zmena hesla je povinna"
+
+msgid "For security reasons, please change your password. Minimum length is 22 characters."
+msgstr "Z bezpecnostnich duvodu si prosim zmente heslo. Minimalni delka je 22 znaku."
