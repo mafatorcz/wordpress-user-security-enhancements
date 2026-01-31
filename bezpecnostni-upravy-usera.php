@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Bezpecnostni upravy usera
+ * Plugin Name: User Security Enhancements
  * Description: Vynucuje minimalni delku hesla 22 znaku a zmenu hesla po aktivaci pluginu.
  * Version: 1.2.0
- * Author: Martin Fucik
+ * Author: logiconal s.r.o
  * License: GPL-2.0-or-later
  * Text Domain: bezpecnostni-upravy-usera
  * Domain Path: /languages
