@@ -70,6 +70,7 @@ function bu_password_length_error( WP_Error $errors, $password ) {
 
 function bu_validate_password_reset( $errors, $user ) {
 	if ( isset( $_POST['pass1'] ) ) {
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Password needs to preserve special characters for validation.
 		bu_password_length_error( $errors, wp_unslash( $_POST['pass1'] ) );
 	}
 }
@@ -80,16 +81,22 @@ function bu_profile_password_validation( $errors, $update, $user ) {
 		return;
 	}
 
-	if ( ! isset( $_POST['pass2'] ) || $_POST['pass1'] !== $_POST['pass2'] ) {
+	// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Password needs to preserve special characters for validation.
+	$pass1 = isset( $_POST['pass1'] ) ? wp_unslash( $_POST['pass1'] ) : '';
+	// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Password needs to preserve special characters for validation.
+	$pass2 = isset( $_POST['pass2'] ) ? wp_unslash( $_POST['pass2'] ) : '';
+
+	if ( ! isset( $_POST['pass2'] ) || ! hash_equals( $pass1, $pass2 ) ) {
 		return;
 	}
 
-	bu_password_length_error( $errors, wp_unslash( $_POST['pass1'] ) );
+	bu_password_length_error( $errors, $pass1 );
 }
 add_action( 'user_profile_update_errors', 'bu_profile_password_validation', 10, 3 );
 
 function bu_registration_password_validation( $errors, $sanitized_user_login, $user_email ) {
 	if ( isset( $_POST['pass1'] ) ) {
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Password needs to preserve special characters for validation.
 		bu_password_length_error( $errors, wp_unslash( $_POST['pass1'] ) );
 	}
 
@@ -112,6 +119,7 @@ function bu_mark_password_changed_after_reset( $user, $new_pass ) {
 add_action( 'after_password_reset', 'bu_mark_password_changed_after_reset', 10, 2 );
 
 function bu_mark_password_changed_after_profile_update( $user_id ) {
+	// WordPress core already validates nonce in user-edit.php before calling profile_update hook.
 	if ( empty( $_POST['pass1'] ) ) {
 		return;
 	}
@@ -140,7 +148,7 @@ function bu_is_password_change_required( $user_id ) {
 }
 
 function bu_is_force_change_request_allowed() {
-	if ( wp_doing_ajax() || defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+	if ( wp_doing_ajax() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) {
 		return true;
 	}
 
@@ -183,7 +191,8 @@ function bu_should_show_force_password_prompt() {
 		return false;
 	}
 
-	if ( empty( $_GET['bu_force_password_change'] ) ) {
+	$force_change = isset( $_GET['bu_force_password_change'] ) ? sanitize_text_field( wp_unslash( $_GET['bu_force_password_change'] ) ) : '';
+	if ( empty( $force_change ) ) {
 		return false;
 	}
 
