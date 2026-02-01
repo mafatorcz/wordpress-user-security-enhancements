@@ -83,11 +83,13 @@ function bu_profile_password_validation( $errors, $update, $user ) {
 
 	// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Password needs to preserve special characters for validation.
 	$pass1 = isset( $_POST['pass1'] ) ? wp_unslash( $_POST['pass1'] ) : '';
-	// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Password needs to preserve special characters for validation.
-	$pass2 = isset( $_POST['pass2'] ) ? wp_unslash( $_POST['pass2'] ) : '';
 
-	if ( ! isset( $_POST['pass2'] ) || ! hash_equals( $pass1, $pass2 ) ) {
-		return;
+	if ( isset( $_POST['pass2'] ) ) {
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Password needs to preserve special characters for validation.
+		$pass2 = wp_unslash( $_POST['pass2'] );
+		if ( ! hash_equals( $pass1, $pass2 ) ) {
+			return;
+		}
 	}
 
 	bu_password_length_error( $errors, $pass1 );
@@ -317,7 +319,6 @@ function bu_force_password_sticky_notice() {
 	echo '<li>' . esc_html__( 'At least one uppercase letter', 'bezpecnostni-upravy-usera' ) . '</li>';
 	echo '<li>' . esc_html__( 'At least one number', 'bezpecnostni-upravy-usera' ) . '</li>';
 	echo '<li>' . esc_html__( 'At least one special character', 'bezpecnostni-upravy-usera' ) . '</li>';
-	echo '<li>' . esc_html__( 'Passwords must match', 'bezpecnostni-upravy-usera' ) . '</li>';
 	echo '<li>' . esc_html__( 'Save the password using the Update Profile button at the bottom.', 'bezpecnostni-upravy-usera' ) . '</li>';
 	echo '</ul>';
 	echo '</div>';
@@ -338,12 +339,10 @@ function bu_force_password_modal() {
 	echo '<li>' . esc_html__( 'At least one uppercase letter', 'bezpecnostni-upravy-usera' ) . '</li>';
 	echo '<li>' . esc_html__( 'At least one number', 'bezpecnostni-upravy-usera' ) . '</li>';
 	echo '<li>' . esc_html__( 'At least one special character', 'bezpecnostni-upravy-usera' ) . '</li>';
-	echo '<li>' . esc_html__( 'Passwords must match', 'bezpecnostni-upravy-usera' ) . '</li>';
 	echo '<li>' . esc_html__( 'Save the password using the Update Profile button at the bottom.', 'bezpecnostni-upravy-usera' ) . '</li>';
 	echo '</ul>';
 	echo '<div class="bu-force-password-modal__actions">';
 	echo '<button type="button" class="button button-primary" id="bu-force-password-scroll">' . esc_html__( 'Go to password fields', 'bezpecnostni-upravy-usera' ) . '</button>';
-	echo '<button type="button" class="button" id="bu-force-password-close">' . esc_html__( 'Continue', 'bezpecnostni-upravy-usera' ) . '</button>';
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
@@ -364,27 +363,66 @@ function bu_force_password_modal_script() {
 			'counter_template'     => __( 'Password length: %1$d / %2$d (uppercase letter, number, special character)', 'bezpecnostni-upravy-usera' ),
 		)
 	) . ';
-			var modal = document.getElementById("bu-force-password-modal");
-			if (!modal) {
-				return;
-			}
-			var body = document.body;
-			var scrollButton = document.getElementById("bu-force-password-scroll");
-			var closeButton = document.getElementById("bu-force-password-close");
-			var pass1 = document.getElementById("pass1");
-			var pass2 = document.getElementById("pass2");
-			var generateButton = document.querySelector(".wp-generate-pw");
-			var showButton = document.querySelector(".wp-hide-pw");
-			var minLength = 22;
-			var submitButtons = document.querySelectorAll("input[type=\\"submit\\"], button[type=\\"submit\\"]");
-			modal.classList.add("is-visible");
-			body.style.overflow = "hidden";
-			body.classList.add("bu-password-focus");
+		var modal = document.getElementById("bu-force-password-modal");
+		if (!modal) {
+			return;
+		}
+		var body = document.body;
+		var scrollButton = document.getElementById("bu-force-password-scroll");
+		var pass1 = document.getElementById("pass1");
+		var pass1Text = document.getElementById("pass1-text");
+		var pass2 = document.getElementById("pass2");
+		var generateButton = document.querySelector(".wp-generate-pw");
+		var showButton = document.querySelector(".wp-hide-pw");
+		var minLength = 22;
+		var submitButtons = document.querySelectorAll("input[type=\\"submit\\"], button[type=\\"submit\\"]");
+		modal.classList.add("is-visible");
+		body.style.overflow = "hidden";
+		body.classList.add("bu-password-focus");
 
-			if (generateButton && pass1 && pass1.value === "") {
-				generateButton.click();
-				window.setTimeout(updateValidationState, 0);
+		function getPassValue() {
+			if (pass1 && pass1.value) {
+				return pass1.value;
 			}
+			if (pass1Text && pass1Text.value) {
+				return pass1Text.value;
+			}
+			return "";
+		}
+
+		function triggerInputEvents() {
+			if (pass1) {
+				pass1.dispatchEvent(new Event("input", { bubbles: true }));
+				pass1.dispatchEvent(new Event("change", { bubbles: true }));
+				pass1.dispatchEvent(new Event("keyup", { bubbles: true }));
+			}
+			if (pass1Text) {
+				pass1Text.dispatchEvent(new Event("input", { bubbles: true }));
+				pass1Text.dispatchEvent(new Event("change", { bubbles: true }));
+				pass1Text.dispatchEvent(new Event("keyup", { bubbles: true }));
+			}
+			if (pass2) {
+				pass2.dispatchEvent(new Event("input", { bubbles: true }));
+				pass2.dispatchEvent(new Event("change", { bubbles: true }));
+				pass2.dispatchEvent(new Event("keyup", { bubbles: true }));
+			}
+			var form = (pass1 && pass1.closest("form")) || (pass2 && pass2.closest("form")) || null;
+			if (form && typeof jQuery !== "undefined") {
+				jQuery(form).trigger("change");
+			}
+		}
+
+		if (generateButton && pass1 && getPassValue() === "") {
+			generateButton.click();
+			window.setTimeout(function() {
+				if (pass1) {
+					pass1.focus();
+					pass1.blur();
+				}
+				triggerInputEvents();
+				updateValidationState();
+			}, 100);
+		}
 
 			if (pass1 && !document.querySelector(".bu-password-hint")) {
 				var hint = document.createElement("p");
@@ -409,13 +447,13 @@ function bu_force_password_modal_script() {
 
 			function updateValidationState() {
 				var counterEl = document.querySelector(".bu-password-counter");
-				var pass1Value = pass1 ? pass1.value : "";
+				var pass1Value = getPassValue();
 				var pass2Value = pass2 ? pass2.value : "";
 				var lengthOk = pass1Value.length >= minLength;
 				var uppercaseOk = /[A-Z]/.test(pass1Value);
 				var numberOk = /[0-9]/.test(pass1Value);
 				var specialOk = /[^a-zA-Z0-9]/.test(pass1Value);
-				var matchOk = pass1Value.length > 0 && pass1Value === pass2Value;
+				var matchOk = pass2 ? (pass2Value === "" || pass1Value === pass2Value) : true;
 				var isValid = lengthOk && uppercaseOk && numberOk && specialOk && matchOk;
 
 				if (counterEl) {
@@ -436,46 +474,62 @@ function bu_force_password_modal_script() {
 			if (pass1) {
 				pass1.addEventListener("input", updateValidationState);
 			}
+			if (pass1Text) {
+				pass1Text.addEventListener("input", updateValidationState);
+			}
 			if (pass2) {
 				pass2.addEventListener("input", updateValidationState);
 			}
-			if (generateButton) {
-				generateButton.addEventListener("click", function() {
-					window.setTimeout(updateValidationState, 0);
-				});
-			}
-			updateValidationState();
+		if (generateButton) {
+			generateButton.addEventListener("click", function() {
+				window.setTimeout(function() {
+					triggerInputEvents();
+					updateValidationState();
+				}, 100);
+			});
+		}
+		var formEl = (pass1 && pass1.closest("form")) || (pass2 && pass2.closest("form")) || null;
+		if (formEl) {
+			formEl.addEventListener("submit", function() {
+				var value = getPassValue();
+				if (pass2 && value && !pass2.value) {
+					pass2.value = value;
+				}
+			});
+		}
+		updateValidationState();
 
 			function closeModal() {
 				modal.classList.remove("is-visible");
 				body.style.overflow = "";
 			}
 
-			if (scrollButton) {
-				scrollButton.addEventListener("click", function() {
-					closeModal();
-					var pwdWrap = document.querySelector(".wp-pwd");
-					if (generateButton && pwdWrap && !pwdWrap.classList.contains("is-open")) {
-						generateButton.click();
+		if (scrollButton) {
+			scrollButton.addEventListener("click", function() {
+				closeModal();
+				var pwdWrap = document.querySelector(".wp-pwd");
+				if (generateButton && pwdWrap && !pwdWrap.classList.contains("is-open")) {
+					generateButton.click();
+				}
+
+				window.setTimeout(function() {
+					var target = document.getElementById("pass1") || document.querySelector("input[name=\\"pass1\\"]");
+					if (target) {
+						var focusTarget = target.closest(".user-pass1-wrap") || target;
+						focusTarget.scrollIntoView({ behavior: "smooth", block: "center" });
+						target.focus({ preventScroll: true });
+						window.setTimeout(function() {
+							target.blur();
+							triggerInputEvents();
+							updateValidationState();
+						}, 100);
 					}
-
-					window.setTimeout(function() {
-						var target = document.getElementById("pass1") || document.querySelector("input[name=\\"pass1\\"]");
-						if (target) {
-							var focusTarget = target.closest(".user-pass1-wrap") || target;
-							focusTarget.scrollIntoView({ behavior: "smooth", block: "center" });
-							target.focus({ preventScroll: true });
-						}
-						if (showButton && showButton.getAttribute("aria-pressed") === "false") {
-							showButton.click();
-						}
-					}, 120);
-				});
-			}
-
-			if (closeButton) {
-				closeButton.addEventListener("click", closeModal);
-			}
+					if (showButton && showButton.getAttribute("aria-pressed") === "false") {
+						showButton.click();
+					}
+				}, 200);
+			});
+		}
 		})();
 	</script>';
 }
